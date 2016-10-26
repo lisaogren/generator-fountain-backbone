@@ -1,0 +1,10 @@
+import $ from 'jquery';
+import {Model} from 'backbone';
+
+import {Hello} from './app/hello';
+
+const world = new Model({name})l
+
+const helloView = new Hello({model: world});
+
+$('#root').append(helloView.render().el);
