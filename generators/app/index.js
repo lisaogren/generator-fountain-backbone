@@ -50,9 +50,9 @@ module.exports = fountain.Base.extend({
     pkg() {
       this.mergeJson('package.json', {
         dependencies: {
-          'jquery': '^2.2.4',
-          'underscore': '^1.8.3',
-          'backbone': '^1.3.3'
+          jquery: '^2.2.4',
+          underscore: '^1.8.3',
+          backbone: '^1.3.3'
         }
       });
 
@@ -80,19 +80,19 @@ module.exports = fountain.Base.extend({
     },
 
     babel() {
-      // if (this.props.js !== 'typescript') {
-      //   const presets = ['react'];
-      //   if (this.props.modules === 'webpack') {
-      //     this.mergeJson('.babelrc', {
-      //       env: {
-      //         development: {presets},
-      //         production: {presets}
-      //       }
-      //     });
-      //   } else {
-      //     this.mergeJson('.babelrc', {presets});
-      //   }
-      // }
+      if (this.props.js !== 'typescript') {
+        const presets = ['es2015'];
+        if (this.props.modules === 'webpack') {
+          this.mergeJson('.babelrc', {
+            env: {
+              development: {presets},
+              production: {presets}
+            }
+          });
+        } else {
+          this.mergeJson('.babelrc', {presets});
+        }
+      }
     }
   },
 
