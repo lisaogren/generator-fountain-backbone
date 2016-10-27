@@ -3,7 +3,7 @@ import {Model} from 'backbone';
 
 import {Hello} from './app/hello';
 
-const world = new Model({name})l
+const world = new Model({name});
 
 const helloView = new Hello({model: world});
 
