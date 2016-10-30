@@ -18,21 +18,9 @@ module.exports = fountain.Base.extend({
           name: 'sample',
           message: 'Do you want a sample app?',
           choices: [
-            // {name: 'A working landing page', value: 'techs'},
-            {name: 'Just a Hello World', value: 'hello'},
-            // {name: 'Redux TodoMVC', value: 'todoMVC'}
+            {name: 'Just a Hello World', value: 'hello'}
           ]
-        },
-        // {
-        //   when: !this.options.router,
-        //   type: 'list',
-        //   name: 'router',
-        //   message: 'Would you like a router?',
-        //   choices: [
-        //     {name: 'React router', value: 'router'},
-        //     {name: 'None', value: 'none'}
-        //   ]
-        // }
+        }
       ];
 
       return this.prompt(prompts).then(props => {
@@ -55,28 +43,6 @@ module.exports = fountain.Base.extend({
           backbone: '^1.3.3'
         }
       });
-
-      // if (this.props.router === 'router') {
-      //   if (this.props.modules === 'inject') {
-      //     this.mergeJson('package.json', {
-      //       dependencies: {
-      //         'react-router': 'https://cdnjs.cloudflare.com/ajax/libs/react-router/2.4.1/ReactRouter.min.js'
-      //       }
-      //     });
-      //   } else {
-      //     this.mergeJson('package.json', {
-      //       dependencies: {
-      //         'react-router': '^2.4.0'
-      //       }
-      //     });
-      //   }
-      // }
-
-      // this.mergeJson('package.json', {
-      //   devDependencies: {
-      //     'react-addons-test-utils': '^15.0.1'
-      //   }
-      // });
     },
 
     babel() {
