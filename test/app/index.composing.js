@@ -15,8 +15,8 @@ test.before(() => {
 
 test(`Call this.composeWith twice and add no prefix when sample is different of 'todoMVC'`, () => {
   const spy = chai.spy.on(context, 'composeWith');
-  context.props = {modules: 'modules', sample: 'techs'};
-  TestUtils.call(context, 'composing', {modules: context.props.modules, sample: context.props.sample, router: 'router'});
+  context.props = {modules: 'modules', sample: 'hello'};
+  TestUtils.call(context, 'composing', {modules: context.props.modules, sample: context.props.sample});
   const options = {
     framework: context.props.framework,
     modules: context.props.modules,
@@ -29,6 +29,6 @@ test(`Call this.composeWith twice and add no prefix when sample is different of 
     skipCache: context.props.skipCache
   };
   expect(spy).to.have.been.called.twice();
-  expect(spy).to.have.been.called.with(`fountain-react:techs`, {options}, {local: require.resolve('../../generators/techs')});
+  expect(spy).to.have.been.called.with(`fountain-backbone:hello`, {options}, {local: require.resolve('../../generators/hello')});
   expect(spy).to.have.been.called.with(`fountain-gulp`, {options}, {local: require.resolve('generator-fountain-gulp/generators/app')});
 });

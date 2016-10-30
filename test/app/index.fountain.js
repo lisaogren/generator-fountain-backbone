@@ -16,6 +16,6 @@ test('Set framework and call this.fountainPrompting', t => {
   context.fountainPrompting = () => {};
   const spy = chai.spy.on(context, 'fountainPrompting');
   TestUtils.call(context, 'prompting.fountain');
-  t.is(context.options.framework, 'react');
+  t.is(context.options.framework, 'backbone');
   expect(spy).to.have.been.called.once();
 });

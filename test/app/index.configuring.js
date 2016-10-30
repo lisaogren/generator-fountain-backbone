@@ -31,39 +31,22 @@ test('Call this.config.set twice', () => {
   expect(spy).to.have.been.called.with('props');
 });
 
-test(`Add 'react' to package.json dependencies`, t => {
+test(`Add 'backbone' to package.json dependencies`, t => {
   context.props = {router: 'none'};
   TestUtils.call(context, 'configuring.pkg');
-  t.is(context.mergeJson['package.json'].dependencies.react, '^15.0.1');
-  t.is(context.mergeJson['package.json'].devDependencies['react-addons-test-utils'], '^15.0.1');
+  t.is(context.mergeJson['package.json'].dependencies.jquery, '^2.2.4');
+  t.is(context.mergeJson['package.json'].dependencies.underscore, '^1.8.3');
+  t.is(context.mergeJson['package.json'].dependencies.backbone, '^1.3.3');
 });
 
-test(`Add 'router' to package.json dependencies`, t => {
-  context.props = {router: 'router', modules: 'webpack'};
-  TestUtils.call(context, 'configuring.pkg');
-  t.is(context.mergeJson['package.json'].dependencies['react-router'], '^2.4.0');
-});
-
-test(`Add 'router' cdn url to package.json dependencies`, t => {
-  context.props = {router: 'router', modules: 'inject'};
-  TestUtils.call(context, 'configuring.pkg');
-  t.is(context.mergeJson['package.json'].dependencies['react-router'], 'https://cdnjs.cloudflare.com/ajax/libs/react-router/2.4.1/ReactRouter.min.js');
-});
-
-test(`Add 'react' to '.babelrc' when modules is 'webpack'`, t => {
+test(`Add 'es2015' to '.babelrc' when modules is 'webpack'`, t => {
   context.props = {js: 'babel', modules: 'webpack'};
   TestUtils.call(context, 'configuring.babel');
-  t.deepEqual(context.mergeJson['.babelrc'].env.production.presets, ['react']);
+  t.deepEqual(context.mergeJson['.babelrc'].env.production.presets, ['es2015']);
 });
 
-test(`Add 'react' to '.babelrc' when modules is 'systemjs'`, t => {
+test(`Add 'es2015' to '.babelrc' when modules is 'systemjs'`, t => {
   context.props = {js: 'babel', modules: 'systemjs'};
   TestUtils.call(context, 'configuring.babel');
-  t.deepEqual(context.mergeJson['.babelrc'].presets, ['react']);
-});
-
-test(`Not add 'react' to '.babelrc'`, t => {
-  context.props = {js: 'typescript'};
-  TestUtils.call(context, 'configuring.babel');
-  t.deepEqual(context.mergeJson['.babelrc'], {});
+  t.deepEqual(context.mergeJson['.babelrc'].presets, ['es2015']);
 });
