@@ -3,6 +3,8 @@ import {Model} from 'backbone';
 
 import {Hello} from './app/hello';
 
+import './index.<%- css %>';
+
 const world = new Model({name: 'world'});
 
 const helloView = new Hello({model: world});
