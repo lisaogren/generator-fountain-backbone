@@ -1,10 +1,11 @@
 import _ from 'underscore';
-import Backbone from 'backbone';
+import {View} from 'backbone.marionette';
 
-export const Hello = Backbone.View.extend({
-  template: _.template('<h1>Hello <%%= name %>!</h1>'),
-  render() {
-    this.$el.html(this.template(this.model.attributes));
-    return this;
-  }
+const helloTemplate = _.template(`
+  <h1>Hello <%%= name %>!</h1>
+`);
+
+export const Hello = View.extend({
+  template: helloTemplate,
+  el: '#root'
 });

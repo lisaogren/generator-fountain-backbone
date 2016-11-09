@@ -38,9 +38,10 @@ module.exports = fountain.Base.extend({
     pkg() {
       this.mergeJson('package.json', {
         dependencies: {
-          jquery: '^2.2.4',
-          underscore: '^1.8.3',
-          backbone: '^1.3.3'
+          'jquery': '^2.2.4',
+          'underscore': '^1.8.3',
+          'backbone': '^1.3.3',
+          'backbone.marionette': '^3.1.0'
         }
       });
     },

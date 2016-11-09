@@ -1,10 +1,9 @@
 var _ = require('underscore');
-var Backbone = require('backbone');
+var Marionette = require('backbone.marionette');
 
-module.exports = Backbone.View.extend({
-  template: _.template('<h1>Hello <%%= name %>!</h1>'),
-  render: function () {
-    this.$el.html(this.template(this.model.attributes));
-    return this;
-  }
+var helloTemplate = _.template('<h1>Hello <%%= name %>!</h1>');
+
+module.exports = Marionette.View.extend({
+  template: helloTemplate,
+  el: '#root'
 });

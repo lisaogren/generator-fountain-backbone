@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import {Model} from 'backbone';
 
 import {Hello} from './app/hello';
@@ -9,4 +8,4 @@ const world = new Model({name: 'world'});
 
 const helloView = new Hello({model: world});
 
-$('#root').append(helloView.render().el);
+helloView.render();
